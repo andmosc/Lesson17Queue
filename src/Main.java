@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static final int NUM_FLURS = 25;
-
+    public static final int WAIT_DOORS_IN_SECONDS = 5;
+    public static final int WAIT_MOVE_IN_SECONDS = 10;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Queue<Integer> queue = new LinkedList<>();
@@ -24,10 +25,13 @@ public class Main {
         }
     }
 
-    public static void outFlurs(Queue q) {
+    public static int outFlurs(Queue q) {
+        int totalSeconds=0;
         while (!q.isEmpty()) {
             System.out.print("этаж " + q.poll() + " -> ");
+            totalSeconds += WAIT_DOORS_IN_SECONDS*WAIT_MOVE_IN_SECONDS;
         }
         System.out.println(" этаж 0");
+        return totalSeconds;
     }
 }
