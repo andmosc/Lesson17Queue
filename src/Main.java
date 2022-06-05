@@ -34,24 +34,25 @@ public class Main {
         }
     }
 
-    public static void outFlurs(Queue q) {
+    public static void outFlurs(Queue<Integer> flur) {
         int totalSeconds = 0;
         int currentFlur = 0;
         int previosFlur = 0;
 
-        while (!q.isEmpty()) {
+        while (!flur.isEmpty()) {
 
-            currentFlur = (int) q.peek();
+            currentFlur = flur.peek();
             totalSeconds += Math.abs(currentFlur - previosFlur) * WAIT_MOVE_IN_SECONDS + WAIT_DOORS_IN_SECONDS;
-            previosFlur = (int) q.peek();
+            previosFlur = flur.peek();
 
-            if (q.size() == 1) {
-                System.out.print(" этаж " + q.poll());
+            if (flur.size() == 1) {
+                System.out.print(" этаж " + flur.poll());
                 break;
             }
-            System.out.print("этаж " + q.poll() + " -> ");
+            System.out.print("этаж " + flur.poll() + " -> ");
         }
         System.out.println();
+
         System.out.println("Время затраченное лифтом на маршрут: " + totalSeconds + " c.");
     }
 }
