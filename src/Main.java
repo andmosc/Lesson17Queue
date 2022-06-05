@@ -11,8 +11,9 @@ public class Main {
         int input;
 
         while (true) {
-            System.out.print("Ожидаю ввода этажа (для завершения надмите 0) : ");
+            System.out.print("Ожидаю ввода этажа (для завершения нажмите 0) : ");
             input = Integer.parseInt(scanner.nextLine());
+            queue.offer(input);
 
             if (input > NUM_FLURS || input < 0)
                 continue;
@@ -20,14 +21,17 @@ public class Main {
                 outFlurs(queue);
                 return;
             }
-            queue.offer(input);
+
         }
     }
 
     public static void outFlurs(Queue q) {
-        while (!q.isEmpty()) {
-            System.out.print("этаж " + q.poll() + " -> ");
+           while (!q.isEmpty()) {
+            if (q.size() == 1) {
+                System.out.print(" этаж "+q.poll());
+                break;
+            }
+            System.out.print("этаж " + q.poll()+" -> ");
         }
-        System.out.println(" этаж 0");
     }
 }
