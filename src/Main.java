@@ -20,16 +20,17 @@ public class Main {
                 System.out.println("Введите целое значение!");
                 continue;
             }
-
             if (input > NUM_FLURS || input < 0) {
                 System.out.println("Этажей в доме: (1-" + NUM_FLURS + ")");
                 continue;
             }
+            queue.offer(input);
+
             if (input == 0) {
                 outFlurs(queue);
                 return;
             }
-            queue.offer(input);
+
         }
     }
 
