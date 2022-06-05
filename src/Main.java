@@ -40,12 +40,18 @@ public class Main {
         int previosFlur = 0;
 
         while (!q.isEmpty()) {
+
             currentFlur = (int) q.peek();
             totalSeconds += Math.abs(currentFlur - previosFlur) * WAIT_MOVE_IN_SECONDS + WAIT_DOORS_IN_SECONDS;
             previosFlur = (int) q.peek();
+
+            if (q.size() == 1) {
+                System.out.print(" этаж " + q.poll());
+                break;
+            }
             System.out.print("этаж " + q.poll() + " -> ");
         }
-        System.out.println(" этаж 0");
+        System.out.println();
         System.out.println("Время затраченное лифтом на маршрут: " + totalSeconds + " c.");
     }
 }
