@@ -13,6 +13,7 @@ public class Main {
         int input;
 
         while (true) {
+
             System.out.print("Ожидаю ввода этажа (для завершения надмите 0) : ");
             try {
                 input = Integer.parseInt(scanner.nextLine());
@@ -22,6 +23,7 @@ public class Main {
             }
             if (input > NUM_FLURS || input < 0) {
                 System.out.println("Этажей в доме: (1-" + NUM_FLURS + ")");
+
                 continue;
             }
             queue.offer(input);
@@ -54,5 +56,6 @@ public class Main {
         System.out.println();
 
         System.out.println("Время затраченное лифтом на маршрут: " + totalSeconds + " c.");
+
     }
 }
